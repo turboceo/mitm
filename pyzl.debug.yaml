@@ -1,0 +1,14 @@
+- name: "log"
+  filter:
+    - url-regex: '^https:\/\/wechatpyzl\.51yunmai\.com\/frontend\-refactoring'
+  action:
+    - log-req
+    - log-res
+
+- name: "Redirect"
+  mitm:
+    - "*.51yunmai.com"
+  filters:
+    - url-regex: '^https:\/\/(?:\w+)\.51yunmai\.com\/frontend\-refactoring\/(List|Detail).html(.+)'
+  action: 
+    - redirect: 'http://192.168.68.186:8080/$1.html$2'

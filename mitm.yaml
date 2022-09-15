@@ -1,0 +1,12 @@
+- name: "youtube去广告"
+  mitm:
+    - "*.youtube.com"
+    - "*.googlevideo.com"
+  filters:
+    - url-regex: '^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+(&oad|ctier)'
+    - url-regex: '^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads'
+    - url-regex: '^https?:\/\/(www|s)\.youtube\.com\/youtubei\/v1/feedback'
+    - url-regex: '^https?:\/\/(www|s)\.youtube\.com\/ptracking'
+    - url-regex: '^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking)'
+    - url-regex: '^https?:\/\/\s.youtube.com/api/stats/qoe?.*adformat='
+  action: reject

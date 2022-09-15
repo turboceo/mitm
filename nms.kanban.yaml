@@ -1,0 +1,14 @@
+- name: "log"
+  filter:
+    - url-regex: '^https:\/\/nms\.51yunmai\.com\/qdhtml\/EventKanban\.html'
+  action:
+    - log-req
+    - log-res
+
+- name: "Redirect"
+  mitm:
+    - "*.51yunmai.com"
+  filters:
+    - url-regex: '^https:\/\/nms\.51yunmai\.com\/qdhtml\/EventKanban\.html(.+)'
+  action: 
+    - redirect: 'http://192.168.3.102:8080/qdhtml/resources/turbo/kanban/EventKanban.html$1'
