@@ -1,5 +1,8 @@
 ﻿console.log('===> home index');
-debugger
+
+// 禁止浏览器后退
+!function(t,n,e){var o="#!/welcome",a=document.title,i=n.pathname;function l(t,n){e.replaceState(null,t,n+o),e.pushState(null,t,n)}l(a,i),t.addEventListener("popstate",function(){n.hash===o&&(l(a,i),setTimeout(function(){console.log("BLOCK USER BACK")},0))},!1)}(window,location,history);
+
 function openEventList(type, mainArea) {
     //  console.log(isMobile());
     $(".layuimini-tool").click();
