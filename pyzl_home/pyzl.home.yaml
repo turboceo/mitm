@@ -1,0 +1,14 @@
+- name: "log"
+  filter:
+    - url-regex: '^https:\/\/pyzl\.51yunmai\.com\/js\/EventManger\/homeIndex\.js'
+  action:
+    - log-req
+    - log-res
+
+- name: "Redirect"
+  mitm:
+    - "*.51yunmai.com"
+  filters:
+    - url-regex: '^https:\/\/pyzl\.51yunmai\.com\/js\/EventManger\/homeIndex\.js'
+  action: 
+    - redirect: 'https://192.168.3.102:8001/homeIndex.js?t=9527'
